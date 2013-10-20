@@ -38,15 +38,31 @@ background-color:#e4fed0;
 </div>
 
 <div id="footer" style="background-color:#8FDD55;clear:both;text-align:center;">Copyright © kolemong</div>
+
+<p>
+Filter is easiest explained by a set of examples.
 <dl class='help'>
-	<dt>filter</dt> 
-	<dd>Is a string consisting of zero or more <b>filter-elements</b> separated by space</dd>
-	<dt>filter-element</dt> 
-	<dd>consist of a <b>count-function</b> with an optional <b>comparator</b> and a <b>number</b></dd>
-	<dt>count-function</dt>
-	<dd>is one or more digits. When applied on a set of candidate digits, it returns the count of digits in the candidate digits.</dd> 
-	<dt>comparator</dt>
-	<dd>is one of <b>= &lt; &gt;</b></dd> 
+
+
+<dt>23</dt>
+<dd>candidates containing digits 2 and 3</dd>
+<dt>23=2</dt>
+<dd>equivalent to 23</dd>
+<dt>245&lt;2</dt>
+<dd>candidates having at most one of 2 4 and 5</dd>
+<dt>67&gt;0</dt>
+<dd>candidates having 6 or 7 or both</dd>
+<dt>67=1</dt>
+<dd>candidates with either 6 or 7, but not with both.</dd>
+<dt>48=0</dt>
+<dd>only candidates without 4 and 8</dd>
+<dt>23 67&gt;0</dt>
+<dd>candidates fulfilling 23 and 67&gt;0</dd>
+<dt>1 9=0 67&gt;0</dt>
+<dd>candidates with 1, without 9 and with 6 or 7 (or both)</dd>
+<p>
+Try running these examples on the candidates with sum 25 and 5 cells.
+
 	<dt>drag/drop rows to reorder</dt> 
 	<dd>Works on browser with html5 drag/drop support</dd>
 </dl>
