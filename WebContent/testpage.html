@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>test</title>
+<style>
+.column.over {
+	border: 1px dashed #000;
+}
+</style>
+
+<script>
+	var dragSrcEl = null;
+
+	function handleDragStart(e) {
+		// Target (this) element is the source node.
+		this.style.opacity = '0.2';
+
+		dragSrcEl = this;
+
+		e.dataTransfer.effectAllowed = 'move';
+		e.dataTransfer.setData('text/html', this.innerHTML);
+	}
+	function handleDragOver(e) {
+		if (e.preventDefault) {
+			e.preventDefault(); // Necessary. Allows us to drop.
+		}
+
+		e.dataTransfer.dropEffect = 'move'; // See the section on the DataTransfer object.
+
+		return false;
+	}
+
+	function handleDragEnter(e) {
+		// this / e.target is the current hover target.
+		this.classList.add('over');
+	}
+
+	function handleDragLeave(e) {
+		this.classList.remove('over'); // this / e.target is previous target element.
+	}
+	function handleDrop(e) {
+		// this / e.target is current target element.
+
+		if (e.stopPropagation) {
+			e.stopPropagation(); // Stops some browsers from redirecting.
+		}
+
+		// Don't do anything if dropping the same column we're dragging.
+		if (dragSrcEl != this) {
+			// Set the source column's HTML to the HTML of the column we dropped on.
+			dragSrcEl.innerHTML = this.innerHTML;
+			this.innerHTML = e.dataTransfer.getData('text/html');
+		}
+
+		return false;
+	}
+
+	function handleDragEnd(e) {
+		// this/e.target is the source node.
+//		e.target.style.opacity = '1.0';
+//		e.target.classList.remove('over');
+		var cols = document.querySelectorAll('#columns .column');
+		[].forEach.call(cols, function(col) {
+			col.classList.remove('over');
+			col.style.opacity = '1.0';
+		});
+	}
+
+	function init() {
+		var cols = document.querySelectorAll('#columns .column');
+		[].forEach.call(cols, function(col) {
+			col.addEventListener('dragstart', handleDragStart, false);
+			col.addEventListener('dragenter', handleDragEnter, false);
+			col.addEventListener('dragover', handleDragOver, false);
+			col.addEventListener('dragleave', handleDragLeave, false);
+			col.addEventListener('drop', handleDrop, false);
+			col.addEventListener('dragend', handleDragEnd, false);
+		});
+	}
+	var readyStateCheckInterval = setInterval(function() {
+		if (document.readyState === "complete") {
+			init();
+			clearInterval(readyStateCheckInterval);
+		}
+	}, 10);
+</script>
+</head>
+<body>
+	hello
+	<div id="columns" style='width: 100; height: 300'>
+		<div class="column" draggable="true">
+			<header style='width: 60; height: 60; background-color: #ff5511'>A</header>
+		</div>
+		<div class="column" draggable="true">
+			<header style='width: 60; height: 60; background-color: #cc22ee'>B</header>
+		</div>
+		<div class="column" draggable="true">
+			<header style='width: 60; height: 60; background-color: #22dd11'>C</header>
+		</div>
+	</div>
+
+</body>
+</html>

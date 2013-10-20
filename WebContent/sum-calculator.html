@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <title>Sum Calculator</title>
+	<!--script src="jquery-1.10.2.js"></script-->
+	<script src="sum-calculator.js"></script>
+	<script src="drag-drop.js"></script>
+	<style>
+	
+	</style>
+</head>
+<body>
+
+<div id="container" style="width:492px">
+
+<div id="header" style="background-color:#8FDD55;">
+	<h1 style="margin-bottom:0;text-align:center;">Sum Calculator</h1>
+</div>
+
+<div id="control" style="background-color:#EEEE88;float:left;width:492px;height:35px">
+	Sum
+	<input type="number" id="sum" min="1" max="45" style="width:30px"/>
+	Length
+	<input type="number" id="len" min="1" max="9"  style="width:20px"/>
+	<button id="add" onclick="add()">Add</button>
+</div>
+<div id="content" style="background-color:#EEEE88;float:left;width:492px">
+	<table id='sums'>
+		<tr><th>Sum</th><th>Length</th><th style="width:100px">Filter</th><th style="width:260px;background-color:#F7D700">Result</th><th/></tr>
+ 	</table>
+</div>
+
+<div id="footer" style="background-color:#8FDD55;clear:both;text-align:center;">Copyright © kolemong</div>
+
+</div>
+<template style='visibility:hidden'>
+		<tr class='row' draggable="true">
+			<td class='sum' align='center'/>
+			<td class='len' align='center'/>
+			<td><input type='text' class='filter' style='width:100px' onchange='update(this)'></td>
+			<td class='result' style='width:260px;background-color:#F7D700'></td>
+			<td><div onclick='del(this)'><img src='images/action_stop.gif' width='70%'/></div></td>
+		</tr>
+</template>
+</body>
+</html>
