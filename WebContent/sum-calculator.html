@@ -32,11 +32,18 @@
 </div>
 
 <div id="footer" style="background-color:#8FDD55;clear:both;text-align:center;">Copyright © kolemong</div>
-<ul class='help'>
-	<li>drag/drop rows to reorder 
-		<li>Works on browser with html5 drag/drop support</li>
-	</li>
-</ul>
+<dl class='help'>
+	<dt>filter</dt> 
+	<dd>Is a string consisting of zero or more <b>filter-elements</b> separated by space</dd>
+	<dt>filter-element</dt> 
+	<dd>consist of a <b>count-function</b> with an optional <b>comparator</b> and a <b>number</b></dd>
+	<dt>count-function</dt>
+	<dd>is one or more digits. When applied on a set of candidate digits, it returns the count of digits in the candidate digits.</dd> 
+	<dt>comparator</dt>
+	<dd>is one of <b>= &lt; &gt;</b></dd> 
+	<dt>drag/drop rows to reorder</dt> 
+	<dd>Works on browser with html5 drag/drop support</dd>
+</dl>
 </div>
 <template style='visibility:hidden'>
 		<tr class='row' draggable="true">
