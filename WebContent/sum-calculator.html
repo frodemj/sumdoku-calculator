@@ -2,6 +2,10 @@
 <html>
 <head>
 	<meta charset="utf-8" />
+	<meta name="description" content="killer sudoku sum calculator">
+	<meta name="keywords" content="killersudoku, sumdoku">
+	<meta name="author" content="Frode Mjøs Johnsen">
+	
     <title>Sum Calculator</title>
 	<script src="sum-calculator.js"></script>
 	<script src="drag-drop.js"></script>
@@ -24,17 +28,19 @@ background-color:#e4fed0;
 	<h1 style="margin-bottom:0;text-align:center;">Sum Calculator</h1>
 </div>
 
-<div id="control" style="background-color:#EEEE88;float:left;width:492px;height:35px">
-	<label>Sum</label>
+<div id="control" style="background-color:#EEEE88;float:left;width:492px;height:45px;vertical-align:center;line-height:4em">
+	<label style='vertical-align: top'>Sum</label>
 	<input type="number" id="sum" min="1" max="45" style="width:35px" value='1'/>
 	<label>Length</label>
 	<input type="number" id="len" min="1" max="9"  style="width:30px" value='1'/>
-	<button id="add" onclick="add()">Add</button>
-	<label align="right" onclick="toggleHelp()"><img src='images/emblem-question.png'/></label>
+	<!--button id="add" onclick="add()">Add</button-->
+	<label style='width:100px;' onclick="add()"><img src='images/edit-add.png'/></label>
+	<label style='width:100px;'>.            .</label>
+	<label style='width:100px;align:right;vertical-align:middle;' onclick="toggleHelp()"><img src='images/emblem-question.png'/></label>
 </div>
 <div id="content" style="background-color:#EEEE88;float:left;width:492px">
 	<table id='sums'>
-		<tr><th>Sum</th><th>Length</th><th style="width:100px">Filter</th><th style="width:260px;background-color:#F7D700">Result</th><th/></tr>
+		<tr><th>Sum</th><th>Length</th><th style="width:100px">Filter</th><th style="width:260px;">Result</th><th/></tr>
  	</table>
 </div>
 
@@ -67,16 +73,16 @@ Try running these examples on the candidates with sum 25 and 5 cells.
 	<dt>drag/drop rows to reorder</dt> 
 	<dd>Works on browser with html5 drag/drop support</dd>
 </dl>
-<a href='https://docs.google.com/forms/d/1fzFF6tTqHM9KG9ufZyQZPNAx1TwH2toXQzn5ZOhe1C8/viewform'>Feedback form</a>
+<iframe src="https://docs.google.com/forms/d/1fzFF6tTqHM9KG9ufZyQZPNAx1TwH2toXQzn5ZOhe1C8/viewform?embedded=true" width="492" height="450" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 </div>
 </div>
 <template style='visibility:hidden'>
-		<tr class='row' draggable="true">
+		<tr class='row' draggable='true'>
 			<td class='sum' align='center'/>
 			<td class='len' align='center'/>
 			<td><input type='text' class='filter' style='width:100px' onchange='update(this)'></td>
 			<td class='result' style='width:260px;background-color:#F7D700'></td>
-			<td><div onclick='del(this)'><img src='images/dialog-no-3.png' width='40%'/></div></td>
+			<td><div onmouseover='alert(over)' onclick='del(this)'><img src='images/document-close-3.png' width='40%'/></div></td>
 		</tr>
 </template>
 </body>
