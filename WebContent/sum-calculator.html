@@ -25,11 +25,12 @@ background-color:#e4fed0;
 </div>
 
 <div id="control" style="background-color:#EEEE88;float:left;width:492px;height:35px">
-	Sum
+	<label>Sum</label>
 	<input type="number" id="sum" min="1" max="45" style="width:35px" value='1'/>
-	Length
+	<label>Length</label>
 	<input type="number" id="len" min="1" max="9"  style="width:30px" value='1'/>
 	<button id="add" onclick="add()">Add</button>
+	<label align="right" onclick="toggleHelp()"><img src='images/emblem-question.png'/></label>
 </div>
 <div id="content" style="background-color:#EEEE88;float:left;width:492px">
 	<table id='sums'>
@@ -38,7 +39,7 @@ background-color:#e4fed0;
 </div>
 
 <div id="footer" style="background-color:#8FDD55;clear:both;text-align:center;">Copyright © kolemong</div>
-
+<div id='help' style='display: none;'>
 <p>
 Filter is easiest explained by a set of examples.
 <dl class='help'>
@@ -67,13 +68,14 @@ Try running these examples on the candidates with sum 25 and 5 cells.
 	<dd>Works on browser with html5 drag/drop support</dd>
 </dl>
 </div>
+</div>
 <template style='visibility:hidden'>
 		<tr class='row' draggable="true">
 			<td class='sum' align='center'/>
 			<td class='len' align='center'/>
 			<td><input type='text' class='filter' style='width:100px' onchange='update(this)'></td>
 			<td class='result' style='width:260px;background-color:#F7D700'></td>
-			<td><div onclick='del(this)'><img src='images/action_stop.gif' width='70%'/></div></td>
+			<td><div onclick='del(this)'><img src='images/dialog-no-3.png' width='70%'/></div></td>
 		</tr>
 </template>
 </body>

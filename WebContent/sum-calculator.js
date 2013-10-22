@@ -179,6 +179,16 @@ function showElement(elem, indent) {
 	}
 	return result;
 }
+function toggleHelp() {
+	var ele = document.getElementById("help");
+	if (ele.style.display == "none") {
+		ele.style.display = "block";
+	}
+	else {
+		ele.style.display = "none";
+	}
+}
+
 //window.alert = function(title, message){
 //    var myElementToShow = document.getElementById("someElementId");
 //    myElementToShow.innerHTML = title + "</br>" + message; 

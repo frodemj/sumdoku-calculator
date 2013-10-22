@@ -7,25 +7,19 @@
 </style>
 
 <script>
-function toggleHelp(node) {
-//	alert(node);
+function toggleHelp() {
 	var ele = document.getElementById("columns");
 	if (ele.style.display == "none") {
-//	if (ele.style.visibility == 'hidden') {
 		ele.style.display = "block";
-//		ele.style.visibility= 'hidden';
-		node.textContent = "Hide Help";
 	}
 	else {
 		ele.style.display = "none";
-//		ele.style.visibility= 'hidden';
-		node.textContent = "Show Help";
 	}
 }
 </script>
 </head>
 <body>
-	<button id="add" onclick="toggleHelp(this)">Show Help</button>
+	<button id="add" onclick="toggleHelp()">Show Help</button>
 	<div id="columns" style='display: none;'>
 		bla bla bla
 	</div>
